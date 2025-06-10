@@ -1,0 +1,267 @@
+/* Ensure HTML and Body take full height and prevent overall scroll */
+html, body, #root { /* #root is the common ID for the root React element */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Crucial: Prevents the entire page from scrolling */
+}
+
+/* Main Container Styling */
+.register-container {
+  background: linear-gradient(135deg, #e0f7fa, #b2ebf2); /* Soft blue gradient background */
+  height: 100vh; /* Make the container exactly 100% of the viewport height */
+  display: flex;
+  flex-direction: column; /* Stack header and main body vertically */
+  justify-content: center; /* Vertically center the stacked content */
+  align-items: center; /* Horizontally center the content */
+  padding: 20px; /* Padding around the entire content block */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, clean font */
+  box-sizing: border-box; /* Includes padding in the element's total height/width */
+  overflow: hidden; /* Prevent the container itself from showing scrollbars */
+}
+
+/* Header Styling */
+.register-header {
+  margin-bottom: 20px; /* Space between header and main card */
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+  padding: 15px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex-shrink: 0; /* Prevent the header from shrinking when space is limited */
+  z-index: 10; /* Ensure it stays on top */
+}
+
+.register-header .heading {
+  color: #00838f; /* A refreshing shade of teal/cyan */
+  margin: 0;
+  font-size: 2.2em; /* Prominent heading size */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.05); /* Subtle text shadow */
+}
+
+/* Main Body (Image + Form) Layout */
+.register-body {
+  background-color: #fff; /* White background for the main card */
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Deeper, more attractive shadow */
+  display: flex; /* Use flexbox for side-by-side layout (on larger screens) */
+  flex-grow: 1; /* Allows the body to grow and fill available vertical space */
+  flex-shrink: 1; /* Allows the body to shrink if space is limited */
+  width: 90%;
+  max-width: 950px; /* Max width for larger screens */
+  overflow: hidden; /* Crucial: Hides overflow of its direct children (image/form containers) */
+  box-sizing: border-box;
+}
+
+/* Image Container Section */
+.image-container {
+  flex: 1; /* Takes up half the space */
+  background: linear-gradient(45deg, #00acc1, #007987); /* Gradient for the image side */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  box-sizing: border-box;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  overflow-y: auto; /* Allow vertical scrolling if image/proverb content overflows */
+}
+
+.bus-image {
+  max-width: 90%; /* Ensure image fits well */
+  height: auto;
+  border-radius: 10px; /* Slightly more rounded corners for the image */
+  margin-bottom: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.bus-image:hover {
+    transform: scale(1.03); /* Slight zoom effect on hover */
+}
+
+.proverb {
+  font-style: italic;
+  text-align: center;
+  font-size: 1.2em; /* Slightly larger proverb */
+  color: #e0f7fa; /* Lighter color for proverb */
+  line-height: 1.6;
+}
+
+/* Form Container Section */
+.form-container {
+  flex: 1; /* Takes up half the space */
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content */
+  box-sizing: border-box;
+  overflow-y: auto; /* Allow vertical scrolling if form content overflows */
+}
+
+.form-container h2 {
+  color: #00838f;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
+/* Form Group (Label + Input) */
+.form-group {
+  margin-bottom: 25px; /* Spacing between form fields */
+}
+
+.form-group label {
+  display: block; /* Label on its own line */
+  margin-bottom: 8px;
+  color: #37474f; /* Darker grey for labels */
+  font-weight: bold;
+  font-size: 0.95em;
+}
+
+.registration-input { /* Targeting your .registration-input class */
+  width: calc(100% - 24px); /* Full width minus padding and border */
+  padding: 12px;
+  border: 1px solid #cfd8dc; /* Light grey border */
+  border-radius: 8px; /* Nicely rounded input fields */
+  font-size: 1em;
+  color: #263238; /* Dark text color */
+  box-sizing: border-box; /* Include padding and border in width */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.registration-input:focus {
+  outline: none; /* Remove default outline */
+  border-color: #00838f; /* Highlight border on focus */
+  box-shadow: 0 0 8px rgba(0, 131, 143, 0.4); /* Soft shadow on focus */
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  gap: 15px; /* Space between buttons */
+  margin-top: 30px; /* Space above buttons */
+  justify-content: center; /* Center buttons horizontally */
+  flex-wrap: wrap; /* Allow buttons to wrap to next line on small screens */
+}
+
+/* General Button Styling (for .form-button) */
+.form-button { /* Targeting your .form-button class */
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px; /* Nicely rounded buttons */
+  font-size: 1.05em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Register Button Specific Styling */
+.form-button.register-button {
+  background-color: #00838f; /* Primary button color */
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 131, 143, 0.3);
+}
+
+.form-button.register-button:hover {
+  background-color: #005f6b; /* Darker shade on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 6px 15px rgba(0, 131, 143, 0.4);
+}
+
+/* Back Button Specific Styling */
+.form-button.back-button {
+  background-color: transparent; /* Transparent background */
+  color: #00838f; /* Primary color for text */
+  border: 1px solid #00838f; /* Border in primary color */
+}
+
+.form-button.back-button:hover {
+  background-color: #e0f7fa; /* Light background on hover */
+  color: #005f6b; /* Darker text on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  .register-container {
+    padding: 15px; /* Adjust overall padding */
+  }
+
+  .register-header {
+    margin-bottom: 15px; /* Reduce margin */
+    padding: 10px 20px;
+  }
+
+  .register-header .heading {
+    font-size: 1.8em;
+  }
+
+  .register-body {
+    flex-direction: column; /* Stack image and form vertically */
+    width: 98%; /* Make it wider on small screens */
+    /* Remove explicit max-height here as flex-grow/shrink should handle it */
+  }
+
+  .image-container {
+    padding: 20px;
+    /* Adjust border-radius for stacked layout if desired */
+    border-radius: 12px 12px 0 0;
+  }
+
+  .bus-image {
+    max-height: 180px; /* Constrain image height on mobile */
+    width: auto;
+    object-fit: contain; /* Ensure entire image is visible */
+  }
+
+  .proverb {
+    font-size: 0.95em;
+  }
+
+  .form-container {
+    padding: 30px 20px; /* Adjust padding for smaller screens */
+    /* Adjust border-radius for stacked layout if desired */
+    border-radius: 0 0 12px 12px;
+  }
+
+  .form-container h2 {
+    font-size: 1.6em;
+    margin-bottom: 25px;
+  }
+
+  .form-group {
+    margin-bottom: 15px; /* Reduce spacing between fields */
+  }
+
+  .form-button {
+    width: 100%; /* Make buttons full width */
+    font-size: 1em;
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-container {
+    padding: 10px;
+  }
+
+  .register-header {
+    padding: 8px 15px;
+  }
+
+  .register-header .heading {
+    font-size: 1.4em;
+  }
+
+  .form-container {
+    padding: 25px 15px;
+  }
+
+  .registration-input {
+    padding: 10px;
+  }
+}

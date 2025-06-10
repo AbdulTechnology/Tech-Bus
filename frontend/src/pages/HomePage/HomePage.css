@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* You can choose a more appealing font */
+    color: #333; /* Changed text color to a dark grey for better contrast */
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Changed to linear gradient background */
+    background: linear-gradient(to right, #3ae8f0, #a1cbcd);
+    animation: fadeInBackground 2s ease-in-out forwards; /* Smooth background fade-in */
+}
+
+/* Removed the dark overlay as the background is now light */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* You could add a very subtle, light overlay here if needed, e.g., rgba(255, 255, 255, 0.1) */
+    z-index: 1;
+}
+
+.hero-section {
+    position: relative;
+    z-index: 2; /* Ensure content is above any potential overlay */
+    text-align: center;
+    padding: 30px 50px;
+    /* Adjusted background for a more frosted look on lighter background */
+    background: rgba(255, 255, 255, 0.6); /* More opaque white background for content */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    backdrop-filter: blur(8px); /* Slightly more blur for emphasis */
+    animation: slideInContent 1.5s ease-out forwards;
+}
+
+.main-title {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #004d66; /* Darker blue/teal for main title */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Lighter text shadow */
+}
+
+.proverb {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    font-style: italic;
+    color: #1a1a1a; /* Very dark grey for proverb */
+    opacity: 0.9;
+}
+
+.button-group {
+    display: flex;
+    gap: 25px; /* Space between buttons */
+    justify-content: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    color: #fff; /* Keep button text white for contrast */
+}
+
+.btn-register {
+    background-color: #007bff; /* Changed Register to a vibrant blue */
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+}
+
+.btn-register:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.6);
+}
+
+.btn-login {
+    background-color: #28a745; /* Changed Login to a vibrant green */
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+}
+
+.btn-login:hover {
+    background-color: #218838;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6);
+}
+
+/* Animations (unchanged) */
+@keyframes fadeInBackground {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInContent {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design (unchanged, but applies to new styles) */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5em;
+    }
+    .proverb {
+        font-size: 1em;
+    }
+    .button-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-section {
+        padding: 20px 30px;
+    }
+    .btn {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2em;
+    }
+    .hero-section {
+        padding: 15px 20px;
+    }
+    .btn {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+}
